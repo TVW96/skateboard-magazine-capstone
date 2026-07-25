@@ -1,0 +1,1 @@
+# skateboard-magazine-capstone
