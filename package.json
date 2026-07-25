@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "validate:html": "html-validate \"**/*.html\""
   },
   "repository": {
     "type": "git",
@@ -24,6 +28,10 @@
     "@eslint/js": "^10.0.1",
     "@html-eslint/eslint-plugin": "^0.64.0",
     "@html-eslint/parser": "^0.64.0",
-    "eslint": "^10.8.0"
+    "eslint": "^10.8.0",
+    "eslint-config-prettier": "^10.1.8",
+    "html-validate": "^11.5.6",
+    "prettier": "^3.9.6",
+    "prettier-eslint": "^17.1.1"
   }
 }
