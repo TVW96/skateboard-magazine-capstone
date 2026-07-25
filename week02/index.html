@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta
+            name="description"
+            content="PUSH Magazine Week 02 — an accessible OKLCH palette and fluid type study."
+        >
+        <title>Week 02 — Color in Motion</title>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+        <a class="skip-link" href="#main-content">Skip to content</a>
+
+        <header class="site-header">
+            <a
+                class="wordmark"
+                href="../"
+                aria-label="Return to PUSH Magazine home"
+            >
+                PUSH<span>®</span>
+            </a>
+            <p>Week 02 / Design systems</p>
+            <p class="mode-note">Your system theme sets the mode</p>
+        </header>
+
+        <main id="main-content">
+            <section class="hero" aria-labelledby="page-title">
+                <p class="eyebrow">Color in motion / 2026</p>
+                <h1 id="page-title">Built to<br><em>contrast.</em></h1>
+                <div class="hero-meta">
+                    <p>
+                        An accessible OKLCH palette and a title scale that moves from pocket
+                        screen to desktop without a breakpoint.
+                    </p>
+                    <span aria-hidden="true">↘</span>
+                </div>
+            </section>
+
+            <section class="palette" aria-labelledby="palette-title">
+                <div class="section-heading">
+                    <p>01 / Designing the palette</p>
+                    <h2 id="palette-title">Two modes.<br>One readable system.</h2>
+                </div>
+
+                <div class="swatches">
+                    <article class="swatch swatch--light">
+                        <div>
+                            <p>Light mode</p>
+                            <strong>Aa</strong>
+                        </div>
+                        <dl>
+                            <div>
+                                <dt>Background</dt>
+                                <dd>oklch(97% 0.015 90)</dd>
+                            </div>
+                            <div>
+                                <dt>Text</dt>
+                                <dd>oklch(22% 0.02 265)</dd>
+                            </div>
+                        </dl>
+                        <p class="ratio">15.89:1 <span>AAA</span></p>
+                    </article>
+
+                    <article class="swatch swatch--dark">
+                        <div>
+                            <p>Dark mode</p>
+                            <strong>Aa</strong>
+                        </div>
+                        <dl>
+                            <div>
+                                <dt>Background</dt>
+                                <dd>oklch(18% 0.02 265)</dd>
+                            </div>
+                            <div>
+                                <dt>Text</dt>
+                                <dd>oklch(94% 0.015 90)</dd>
+                            </div>
+                        </dl>
+                        <p class="ratio">15.79:1 <span>AAA</span></p>
+                    </article>
+                </div>
+
+                <div class="explanation">
+                    <h3>Why these L values?</h3>
+                    <div>
+                        <p>
+                            OKLCH <code>L</code> runs from 0 (black) to 1 (white) and is
+                            perceptually uniform, so a large gap is a strong starting point:
+                            <strong>0.97 − 0.22 = 0.75</strong> in light mode and
+                            <strong>0.94 − 0.18 = 0.76</strong> in dark mode.
+                        </p>
+                        <p>
+                            WCAG does not calculate contrast from that L gap directly. After
+                            converting each color to linear sRGB, it uses
+                            <code>(Llighter + 0.05) / (Ldarker + 0.05)</code>. These pairs
+                            produce 15.89:1 and 15.79:1—well above AA’s 4.5:1 requirement for
+                            normal text.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="scale" aria-labelledby="scale-title">
+                <div class="section-heading">
+                    <p>02 / Calculating fluid scales</p>
+                    <h2 id="scale-title">Type that finds<br>its own line.</h2>
+                </div>
+
+                <div class="scale-demo">
+                    <p class="demo-label">Resize the viewport</p>
+                    <p class="fluid-title">Streets are the studio.</p>
+                    <div class="ruler" aria-hidden="true">
+                        <span>375px / 1.75rem</span>
+                        <i></i>
+                        <span>1440px / 3rem</span>
+                    </div>
+                </div>
+
+                <div class="formula">
+                    <p>Production value</p>
+                    <code>--title-size: clamp(1.75rem, 1.3099rem + 1.8779vw, 3rem);</code>
+                </div>
+
+                <ol class="math">
+                    <li>
+                        <span>01</span>
+                        <div>
+                            <h3>Convert the endpoints</h3>
+                            <p>At a 16px root size: 1.75rem = 28px and 3rem = 48px.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span>02</span>
+                        <div>
+                            <h3>Find the slope</h3>
+                            <p>
+                                (48 − 28) ÷ (1440 − 375) = 0.018779px per viewport pixel.
+                                Multiply by 100 to express it as <strong>1.8779vw</strong>.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <span>03</span>
+                        <div>
+                            <h3>Find the intercept</h3>
+                            <p>
+                                28 − (0.018779 × 375) = 20.9577px. Divide by 16 to get
+                                <strong>1.3099rem</strong>.
+                            </p>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+        </main>
+
+        <footer>
+            <a href="../">← Issue index</a>
+            <p>PUSH Magazine / Week 02</p>
+            <p>Fall down. Get up.</p>
+        </footer>
+    </body>
+</html>
