@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@400;500&family=Inter:wght@500;800&display=swap");
+
+:root {
+  --ink: #111111;
+  --paper: #f1efe8;
+  --orange: #ff4d00;
+  --acid: #dcff32;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  margin: 0;
+  color: var(--paper);
+  background:
+    radial-gradient(rgba(241, 239, 232, 0.08) 0.8px, transparent 0.8px),
+    var(--ink);
+  background-size: 5px 5px;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+header,
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+
+header {
+  border-bottom: 2px solid var(--paper);
+}
+
+header a {
+  color: var(--paper);
+  font-family: "Archivo Black", Impact, sans-serif;
+  font-size: 2rem;
+  letter-spacing: -0.08em;
+  line-height: 1;
+  text-decoration: none;
+}
+
+header p,
+footer p {
+  margin: 0;
+}
+
+main {
+  position: relative;
+  display: grid;
+  flex: 1;
+  grid-template-columns: 1.35fr 1fr;
+  align-items: end;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.eyebrow {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  margin: 0;
+  color: var(--acid);
+  font-family: "DM Mono", monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0 0 -3vw -1vw;
+  color: var(--orange);
+  font-family: "Archivo Black", Impact, sans-serif;
+  font-size: clamp(15rem, 48vw, 43rem);
+  letter-spacing: -0.15em;
+  line-height: 0.62;
+}
+
+h1 span {
+  color: var(--paper);
+}
+
+.message {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 0 3rem 2rem;
+}
+
+.message h2 {
+  margin: 0 0 2rem;
+  font-family: "Archivo Black", Impact, sans-serif;
+  font-size: clamp(2.4rem, 5vw, 5rem);
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.message p {
+  max-width: 390px;
+  margin: 0 0 3rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.message a {
+  display: inline-block;
+  padding: 0.8rem 1rem;
+  color: var(--ink);
+  background: var(--acid);
+  border: 2px solid var(--acid);
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.message a:hover,
+.message a:focus-visible {
+  color: var(--paper);
+  background: transparent;
+}
+
+footer {
+  border-top: 2px solid var(--paper);
+}
+
+@media (max-width: 760px) {
+  header,
+  footer {
+    padding: 1rem;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
+
+  .eyebrow {
+    top: 1.5rem;
+    left: 1rem;
+  }
+
+  h1 {
+    margin: auto 0 1rem -0.5rem;
+    font-size: 60vw;
+  }
+
+  .message {
+    padding: 0 0 2rem;
+  }
+
+  footer p:last-child {
+    display: none;
+  }
+}

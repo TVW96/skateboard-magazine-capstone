@@ -1,0 +1,637 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@400;500&family=Inter:wght@400;600;800&display=swap");
+
+:root {
+  --ink: #111111;
+  --paper: #f1efe8;
+  --orange: #ff4d00;
+  --acid: #dcff32;
+  --line: 2px solid var(--ink);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(rgba(17, 17, 17, 0.045) 0.8px, transparent 0.8px),
+    var(--paper);
+  background-size: 5px 5px;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 20;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  color: white;
+  background: var(--ink);
+  transform: translateY(-160%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.site-header {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1.4fr;
+  min-height: 94px;
+  border-bottom: var(--line);
+  background: var(--paper);
+}
+
+.site-header > * {
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.wordmark {
+  text-decoration: none;
+  border-right: var(--line);
+}
+
+.wordmark > span {
+  font-family: "Archivo Black", Impact, sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  letter-spacing: -0.08em;
+  line-height: 0.8;
+}
+
+.wordmark small {
+  max-width: 120px;
+  margin-left: 1rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.58rem;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.site-header nav {
+  justify-content: center;
+  gap: 1.5rem;
+  border-right: var(--line);
+  font-family: "DM Mono", monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.site-header nav a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.site-header nav a:hover,
+.site-header nav a:focus-visible {
+  text-decoration-thickness: 3px;
+}
+
+.edition {
+  justify-content: space-between;
+  margin: 0;
+  font-family: "DM Mono", monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.edition span {
+  font-size: 1.4rem;
+}
+
+.hero {
+  min-height: calc(100svh - 94px);
+  overflow: hidden;
+  background: var(--orange);
+  border-bottom: var(--line);
+}
+
+.hero-kicker {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-bottom: var(--line);
+  font-family: "DM Mono", monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  padding: 2.5vw 1.5vw 1vw;
+  font-family: "Archivo Black", Impact, sans-serif;
+  font-size: clamp(8rem, 25.7vw, 29rem);
+  font-weight: 900;
+  letter-spacing: -0.095em;
+  line-height: 0.66;
+  text-transform: uppercase;
+}
+
+.hero-line {
+  display: block;
+}
+
+.hero-line--bottom {
+  margin-left: 8vw;
+  color: var(--paper);
+  text-shadow:
+    -2px -2px 0 var(--ink),
+    2px -2px 0 var(--ink),
+    -2px 2px 0 var(--ink),
+    2px 2px 0 var(--ink);
+}
+
+.hero-footer {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1rem 2rem 2rem;
+}
+
+.hero-footer > p {
+  width: min(490px, 55%);
+  margin: 0;
+  font-size: clamp(1.05rem, 2vw, 1.55rem);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.round-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 128px;
+  aspect-ratio: 1;
+  padding: 1.15rem;
+  border: var(--line);
+  border-radius: 50%;
+  background: var(--acid);
+  font-family: "DM Mono", monospace;
+  font-size: 0.64rem;
+  line-height: 1.1;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.round-link b {
+  font-size: 1.3rem;
+}
+
+.round-link:hover,
+.round-link:focus-visible {
+  background: var(--paper);
+  transform: rotate(5deg);
+}
+
+.ticker {
+  overflow: hidden;
+  padding: 0.8rem 0;
+  color: var(--paper);
+  background: var(--ink);
+  white-space: nowrap;
+}
+
+.ticker > div {
+  display: inline-flex;
+  gap: 1.5rem;
+  min-width: max-content;
+  padding-left: 1.5rem;
+  font-family: "Archivo Black", Impact, sans-serif;
+  font-size: clamp(1.2rem, 2.4vw, 2.2rem);
+  animation: crawl 24s linear infinite;
+}
+
+.ticker i {
+  color: var(--orange);
+  font-style: normal;
+}
+
+@keyframes crawl {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.section-label {
+  margin: 0 0 3rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+
+.manifesto,
+.directory {
+  padding: clamp(4rem, 8vw, 8rem) 2rem;
+  border-bottom: var(--line);
+}
+
+.manifesto h2 {
+  max-width: 1100px;
+  margin: 0;
+  font-family: "Archivo Black", Impact, sans-serif;
+  font-size: clamp(3.3rem, 9vw, 9rem);
+  letter-spacing: -0.075em;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+
+.manifesto h2 em {
+  display: block;
+  color: var(--orange);
+  font-style: normal;
+  -webkit-text-stroke: 2px var(--ink);
+}
+
+.manifesto-copy {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3rem;
+  width: min(760px, 100%);
+  margin: 4rem 0 0 auto;
+}
+
+.manifesto-copy p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.directory {
+  padding-right: 0;
+  padding-left: 0;
+  background: var(--acid);
+}
+
+.directory-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0 2rem 2rem;
+}
+
+.directory-heading .section-label {
+  margin-bottom: 1.3rem;
+}
+
+.directory h2 {
+  margin: 0;
+  font-family: "Archivo Black", Impact, sans-serif;
+  font-size: clamp(3.2rem, 7vw, 7rem);
+  letter-spacing: -0.075em;
+  line-height: 0.85;
+  text-transform: uppercase;
+}
+
+.directory-count {
+  margin: 0;
+  font-family: "DM Mono", monospace;
+  font-size: 0.7rem;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.directory-count strong {
+  display: block;
+  font-family: "Archivo Black", Impact, sans-serif;
+  font-size: 2.5rem;
+}
+
+.issue-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  border-top: var(--line);
+  list-style: none;
+}
+
+.issue-card {
+  min-height: 470px;
+  border-bottom: var(--line);
+  background: var(--paper);
+}
+
+.issue-card:nth-child(odd) {
+  border-right: var(--line);
+}
+
+.issue-card > a,
+.issue-card > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: inherit;
+  padding: 1.5rem;
+  text-decoration: none;
+}
+
+.issue-card--current > a {
+  position: relative;
+  overflow: hidden;
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.issue-card--current > a::after {
+  position: absolute;
+  right: -12%;
+  bottom: -55%;
+  width: 62%;
+  aspect-ratio: 1;
+  border: 32px solid var(--orange);
+  border-radius: 50%;
+  content: "";
+  transition: transform 300ms ease;
+}
+
+.issue-card--current > a:hover::after,
+.issue-card--current > a:focus-visible::after {
+  transform: translate(-6%, -8%) scale(1.1);
+}
+
+.issue-card--current > a:focus-visible {
+  outline: 5px solid var(--orange);
+  outline-offset: -8px;
+}
+
+.issue-topline,
+.issue-bottomline {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: "DM Mono", monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+}
+
+.status-dot::before {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 0.45rem;
+  border-radius: 50%;
+  background: var(--acid);
+  content: "";
+}
+
+.issue-number {
+  position: relative;
+  z-index: 1;
+  margin: auto 0;
+  font-family: "Archivo Black", Impact, sans-serif;
+  font-size: clamp(9rem, 20vw, 18rem);
+  letter-spacing: -0.12em;
+  line-height: 0.65;
+}
+
+.issue-bottomline p {
+  margin: 0 0 0.4rem;
+}
+
+.issue-bottomline h3 {
+  margin: 0;
+  font-family: "Archivo Black", Impact, sans-serif;
+  font-size: clamp(1.7rem, 3vw, 3rem);
+  letter-spacing: -0.05em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.issue-arrow {
+  font-size: 3rem;
+}
+
+.issue-card--empty {
+  color: rgba(17, 17, 17, 0.48);
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 14px,
+      rgba(17, 17, 17, 0.07) 14px,
+      rgba(17, 17, 17, 0.07) 16px
+    ),
+    var(--paper);
+}
+
+.issue-card--open {
+  color: var(--paper);
+  background: var(--orange);
+}
+
+.issue-card--open > div {
+  flex-direction: row;
+  align-items: end;
+}
+
+.issue-card--open p {
+  width: min(390px, 70%);
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.issue-card--open span {
+  font-size: 7rem;
+  font-weight: 200;
+  line-height: 0.7;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: end;
+  min-height: 300px;
+  padding: 2rem;
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.footer-mark {
+  margin: 0;
+  font-family: "Archivo Black", Impact, sans-serif;
+  font-size: clamp(4rem, 10vw, 9rem);
+  letter-spacing: -0.09em;
+  line-height: 0.7;
+}
+
+.footer-mark sup {
+  font-family: "DM Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0;
+}
+
+footer div {
+  font-family: "DM Mono", monospace;
+  font-size: 0.65rem;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+footer div p {
+  margin: 0;
+}
+
+footer > a {
+  justify-self: end;
+  font-family: "DM Mono", monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 800px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+    min-height: 74px;
+  }
+
+  .site-header > * {
+    padding: 0 1rem;
+  }
+
+  .wordmark {
+    border-right: var(--line);
+  }
+
+  .wordmark small,
+  .edition {
+    display: none;
+  }
+
+  .site-header nav {
+    border: 0;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-kicker span:nth-child(2) {
+    display: none;
+  }
+
+  .hero h1 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    font-size: 26vw;
+    line-height: 0.72;
+  }
+
+  .hero-line--bottom {
+    margin-top: 1rem;
+    margin-left: 3vw;
+  }
+
+  .manifesto-copy,
+  .issue-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .issue-card:nth-child(odd) {
+    border-right: 0;
+  }
+
+  .issue-card {
+    min-height: 390px;
+  }
+
+  footer {
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+  }
+
+  footer div {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .site-header nav {
+    gap: 0.8rem;
+    font-size: 0.58rem;
+  }
+
+  .hero-kicker,
+  .hero-footer,
+  .manifesto,
+  .directory-heading {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .hero-footer > p {
+    width: 62%;
+    font-size: 0.95rem;
+  }
+
+  .round-link {
+    width: 104px;
+    padding: 0.9rem;
+  }
+
+  .manifesto-copy {
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .directory-heading {
+    align-items: start;
+  }
+
+  .directory-count {
+    max-width: 100px;
+  }
+
+  .issue-card {
+    min-height: 340px;
+  }
+
+  .issue-number {
+    font-size: 9rem;
+  }
+
+  footer {
+    min-height: 210px;
+    padding: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .ticker > div {
+    animation: none;
+  }
+
+  .round-link,
+  .issue-card--current > a::after {
+    transition: none;
+  }
+}
