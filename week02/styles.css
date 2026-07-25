@@ -400,6 +400,104 @@ footer a {
   width: max-content;
 }
 
+.landing-page .site-header {
+  grid-template-columns: auto 1fr auto;
+  gap: 2rem;
+}
+
+.week-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: end;
+}
+
+.week-nav a {
+  padding: 0.45rem 0.65rem;
+  border: 1px solid var(--line);
+  text-decoration: none;
+}
+
+.week-nav a:hover,
+.week-nav a:focus-visible,
+.week-item a:hover,
+.week-item a:focus-visible {
+  color: var(--accent-text);
+  background: var(--accent);
+  outline: 0;
+}
+
+.landing-hero {
+  min-height: calc(76svh - 5rem);
+  display: grid;
+  align-content: end;
+  gap: 2rem;
+  padding: clamp(1rem, 3vw, 3rem);
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 7vw 7vw;
+}
+
+.landing-hero h1 {
+  margin: clamp(4rem, 10vw, 8rem) 0 0;
+}
+
+.landing-hero > p:last-child {
+  max-width: 42rem;
+  margin: 0;
+  font-size: clamp(1.05rem, 2vw, 1.45rem);
+  line-height: 1.45;
+}
+
+.weekly-issues {
+  padding: clamp(1rem, 3vw, 3rem);
+}
+
+.week-list {
+  border-top: 1px solid var(--line);
+}
+
+.week-item {
+  display: grid;
+  grid-template-columns: 10rem 1fr 2fr;
+  gap: 2rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.week-item > p:first-child {
+  margin: 0;
+  font-family: "DM Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.week-item h3,
+.week-item > p:last-child {
+  margin: 0;
+}
+
+.week-item h3 {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.25;
+  text-transform: none;
+}
+
+.week-item a {
+  text-decoration: none;
+}
+
+.week-item > p:last-child {
+  max-width: 48rem;
+  line-height: 1.6;
+}
+
 @media (max-width: 700px) {
   .site-header,
   footer {
@@ -454,6 +552,24 @@ footer a {
 
   footer p {
     justify-self: end;
+  }
+
+  .landing-page .site-header {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .landing-header > p {
+    display: none;
+  }
+
+  .week-nav {
+    justify-content: start;
+  }
+
+  .week-item {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 }
 

@@ -5,176 +5,97 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta
             name="description"
-            content="Push Magazine — a weekly independent skateboard culture journal."
+            content="Skateboard Magazine Capstone weekly landing page directory."
         >
-        <title>PUSH — Skateboard Magazine</title>
-        <link rel="stylesheet" href="./styles.css">
+        <title>Skateboard Magazine Capstone</title>
+        <link rel="stylesheet" href="./week02/styles.css">
     </head>
-    <body id="top">
-        <a class="skip-link" href="#issue-directory">Skip to issue directory</a>
+    <body class="landing-page" id="top">
+        <a class="skip-link" href="#weekly-issues">Skip to weekly issues</a>
 
-        <header class="site-header">
+        <header class="site-header landing-header">
             <a
                 class="wordmark"
                 href="./"
-                aria-label="PUSH Magazine home"
+                aria-label="Skateboard Magazine Capstone home"
             >
-                <span>PUSH</span>
-                <small>Independent skate culture / est. 2026</small>
+                PUSH<span>®</span>
             </a>
-
-            <nav aria-label="Primary navigation">
-                <a href="#manifesto">About</a>
-                <a href="#issue-directory">Issue index</a>
+            <p>Skateboard Magazine Capstone</p>
+            <nav class="week-nav" aria-label="Weekly pages">
+                <a href="./week02/">Week 02</a>
+                <a href="./week03/">Week 03</a>
+                <a href="./week04/">Week 04</a>
+                <a href="./week05/">Week 05</a>
+                <a href="./week06/">Week 06</a>
             </nav>
-
-            <p class="edition">Vol. 01 <span>↘</span> Los Angeles</p>
         </header>
 
-        <main>
-            <section class="hero" aria-labelledby="hero-title">
-                <div class="hero-kicker" aria-hidden="true">
-                    <span>Roll forever</span>
-                    <span>Look closer</span>
-                    <span>Tell the story</span>
-                </div>
-
-                <h1 id="hero-title">
-                    <span class="hero-line hero-line--top">SKATE</span>
-                    <span class="hero-line hero-line--bottom">BOARD</span>
-                </h1>
-
-                <div class="hero-footer">
-                    <p>
-                        A weekly field journal about the people, places, and ideas that keep
-                        skateboarding moving.
-                    </p>
-                    <a
-                        class="round-link"
-                        href="#issue-directory"
-                        aria-label="Browse weekly issues"
-                    >
-                        <span>Browse<br>issues</span>
-                        <b aria-hidden="true">↓</b>
-                    </a>
-                </div>
-            </section>
-
-            <div class="ticker" aria-hidden="true">
-                <div>
-                    <span>STREETS ARE THE STUDIO</span><i>✦</i>
-                    <span>FALL DOWN / GET UP</span><i>✦</i> <span>NO SPECTATORS</span
-          ><i>✦</i> <span>STREETS ARE THE STUDIO</span><i>✦</i>
-                    <span>FALL DOWN / GET UP</span><i>✦</i> <span>NO SPECTATORS</span
-          ><i>✦</i>
-                </div>
-            </div>
-
-            <section
-                class="manifesto"
-                id="manifesto"
-                aria-labelledby="manifesto-title"
-            >
-                <p class="section-label">01 / The manifesto</p>
-                <h2 id="manifesto-title">
-                    Built one week at a time.
-                    <em>Kept in motion.</em>
-                </h2>
-                <div class="manifesto-copy">
-                    <p>
-                        PUSH is an evolving digital magazine documenting skateboarding as
-                        movement, design, community, and resistance.
-                    </p>
-                    <p>
-                        Every weekly issue lives here. New stories join the archive as they
-                        drop—no dead links, no filler, just the work.
-                    </p>
-                </div>
+        <main id="main-content">
+            <section class="landing-hero" aria-labelledby="page-title">
+                <p class="eyebrow">Capstone directory / 2026</p>
+                <h1 id="page-title">Skateboard<br><em>Magazine</em></h1>
+                <p>
+                    A simple landing page for the weekly builds, planning work, and
+                    deployment progress for the skateboard magazine capstone project.
+                </p>
             </section>
 
             <section
-                class="directory"
-                id="issue-directory"
-                aria-labelledby="directory-title"
+                class="weekly-issues"
+                id="weekly-issues"
+                aria-labelledby="weekly-issues-title"
             >
-                <div class="directory-heading">
-                    <div>
-                        <p class="section-label">02 / The archive</p>
-                        <h2 id="directory-title">Weekly issues</h2>
-                    </div>
-                    <p class="directory-count"><strong>01</strong> issue in progress</p>
+                <div class="section-heading">
+                    <p>Weekly issues</p>
+                    <h2 id="weekly-issues-title">Project archive</h2>
                 </div>
 
-                <ol class="issue-grid">
-                    <li class="issue-card issue-card--current">
-                        <a href="./week02/" aria-label="Open Week 02">
-                            <div class="issue-topline">
-                                <span>Current build</span>
-                                <span class="status-dot">In progress</span>
-                            </div>
-                            <div class="issue-number">02</div>
-                            <div class="issue-bottomline">
-                                <div>
-                                    <p>Week</p>
-                                    <h3>Issue 02</h3>
-                                </div>
-                                <span class="issue-arrow" aria-hidden="true">↗</span>
-                            </div>
-                        </a>
-                    </li>
+                <div class="week-list">
+                    <article class="week-item">
+                        <p>Week 02</p>
+                        <h3>
+                            <a href="./week02/">Archetype Selection &amp; Global Token Blueprint</a>
+                        </h3>
+                        <p>
+                            Official capstone kickoff: choose the modern editorial publication
+                            archetype, set up the multi-week deployment structure, and build the
+                            Week 02 design system token page with OKLCH colors, fluid typography,
+                            and spacing constants.
+                        </p>
+                    </article>
 
-                    <li class="issue-card issue-card--empty">
-                        <div>
-                            <div class="issue-topline">
-                                <span>Next drop</span>
-                                <span>Queued</span>
-                            </div>
-                            <div class="issue-number">03</div>
-                            <div class="issue-bottomline">
-                                <div>
-                                    <p>Week</p>
-                                    <h3>Coming soon</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                    <article class="week-item">
+                        <p>Week 03</p>
+                        <h3><a href="./week03/">Upcoming assignment</a></h3>
+                        <p>Reserved for the next weekly capstone milestone.</p>
+                    </article>
 
-                    <li class="issue-card issue-card--empty">
-                        <div>
-                            <div class="issue-topline">
-                                <span>Future issue</span>
-                                <span>Unpublished</span>
-                            </div>
-                            <div class="issue-number">04</div>
-                            <div class="issue-bottomline">
-                                <div>
-                                    <p>Week</p>
-                                    <h3>Coming soon</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                    <article class="week-item">
+                        <p>Week 04</p>
+                        <h3><a href="./week04/">Upcoming assignment</a></h3>
+                        <p>Reserved for the next weekly capstone milestone.</p>
+                    </article>
 
-                    <li class="issue-card issue-card--open">
-                        <div>
-                            <p>
-                                More weekly issues will be added to this directory as the
-                                magazine grows.
-                            </p>
-                            <span aria-hidden="true">＋</span>
-                        </div>
-                    </li>
-                </ol>
+                    <article class="week-item">
+                        <p>Week 05</p>
+                        <h3><a href="./week05/">Upcoming assignment</a></h3>
+                        <p>Reserved for the next weekly capstone milestone.</p>
+                    </article>
+
+                    <article class="week-item">
+                        <p>Week 06</p>
+                        <h3><a href="./week06/">Upcoming assignment</a></h3>
+                        <p>Reserved for the final listed weekly capstone milestone.</p>
+                    </article>
+                </div>
             </section>
         </main>
 
         <footer>
-            <p class="footer-mark">PUSH<sup>®</sup></p>
-            <div>
-                <p>Skateboarding is not a crime.</p>
-                <p>Designed to keep moving.</p>
-            </div>
-            <a href="#top" aria-label="Back to top">Back to top ↑</a>
+            <a href="#top">Back to top</a>
+            <p>Skateboard Magazine Capstone</p>
+            <p>Weekly landing page directory</p>
         </footer>
     </body>
 </html>
