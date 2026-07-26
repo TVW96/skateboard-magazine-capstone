@@ -12,7 +12,8 @@
   --accent-secondary: oklch(55% 0.2 315);
   --accent-secondary-link: oklch(68% 0.16 315);
   --accent-text: oklch(96% 0.015 90);
-  --line: oklch(96% 0.015 90 / 28%);
+  --line: oklch(55% 0.2 315 / 65%);
+  --grid-line: oklch(96% 0.015 90 / 28%);
 
   /* 28px at 375px → 48px at 1440px (with a 16px root size). */
   --title-size: clamp(1.75rem, calc(1.3099rem + 1.8779vw), 3rem);
@@ -29,7 +30,8 @@
     --accent-secondary: oklch(50% 0.2 315);
     --accent-secondary-link: oklch(50% 0.2 315);
     --accent-text: oklch(96% 0.015 90);
-    --line: oklch(14% 0.025 275 / 28%);
+    --line: oklch(50% 0.2 315 / 65%);
+    --grid-line: oklch(14% 0.025 275 / 28%);
   }
 }
 
@@ -43,7 +45,8 @@
   --accent-secondary: oklch(55% 0.2 315);
   --accent-secondary-link: oklch(68% 0.16 315);
   --accent-text: oklch(96% 0.015 90);
-  --line: oklch(96% 0.015 90 / 28%);
+  --line: oklch(55% 0.2 315 / 65%);
+  --grid-line: oklch(96% 0.015 90 / 28%);
 }
 
 :root[data-theme="light"] {
@@ -56,7 +59,8 @@
   --accent-secondary: oklch(50% 0.2 315);
   --accent-secondary-link: oklch(50% 0.2 315);
   --accent-text: oklch(96% 0.015 90);
-  --line: oklch(14% 0.025 275 / 28%);
+  --line: oklch(50% 0.2 315 / 65%);
+  --grid-line: oklch(14% 0.025 275 / 28%);
 }
 
 * {
@@ -233,8 +237,8 @@ footer p:last-child {
   grid-template-rows: auto 1fr auto;
   align-items: end;
   background:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 7vw 7vw;
 }
 
@@ -280,7 +284,7 @@ h1 em {
   gap: 2rem;
   align-items: end;
   padding-top: 1.5rem;
-  border-top: 1px solid currentColor;
+  border-top: 1px solid var(--line);
 }
 
 .hero-meta p {
@@ -373,7 +377,7 @@ h1 em {
   display: grid;
   grid-template-columns: 7rem 1fr;
   padding: 0.75rem 0;
-  border-bottom: 1px solid currentColor;
+  border-bottom: 1px solid var(--accent-secondary);
 }
 
 .swatch dt,
@@ -431,7 +435,7 @@ code {
   overflow: hidden;
   padding: clamp(1.5rem, 4vw, 4rem);
   color: var(--accent-text);
-  background: var(--accent);
+  background: var(--accent-secondary);
 }
 
 .fluid-title {
@@ -553,8 +557,8 @@ footer a {
   padding: clamp(1rem, 3vw, 3rem);
   border-bottom: 1px solid var(--line);
   background:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 7vw 7vw;
 }
 
