@@ -1,10 +1,12 @@
 {
-  "name": "skateboard-magazine-capston",
+  "name": "skateboard-magazine-capstone",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "playwright test",
+    "test:e2e": "playwright test",
+    "playwright": "bash scripts/run-playwright.sh",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
@@ -28,6 +30,7 @@
     "@eslint/js": "^10.0.1",
     "@html-eslint/eslint-plugin": "^0.64.0",
     "@html-eslint/parser": "^0.64.0",
+    "@playwright/test": "^1.62.0",
     "eslint": "^10.8.0",
     "eslint-config-prettier": "^10.1.8",
     "html-validate": "^11.5.6",
