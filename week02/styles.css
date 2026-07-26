@@ -563,11 +563,14 @@ footer a {
 }
 
 .landing-hero h1 {
+  min-width: 0;
+  max-width: 100%;
   margin: clamp(4rem, 10vw, 8rem) 0 0;
 }
 
 .landing-hero > p:last-child {
-  max-width: 42rem;
+  min-width: 0;
+  max-width: min(42rem, 100%);
   margin: 0;
   font-size: clamp(1.05rem, 2vw, 1.45rem);
   line-height: 1.45;
@@ -623,6 +626,12 @@ footer a {
 }
 
 @media (max-width: 700px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   .site-header,
   footer {
     grid-template-columns: 1fr auto;
@@ -685,6 +694,11 @@ footer a {
 
   .landing-header > p {
     display: none;
+  }
+
+  .landing-hero h1 {
+    font-size: clamp(2.6rem, 12vw, 4rem);
+    letter-spacing: -0.075em;
   }
 
   .week-nav {
