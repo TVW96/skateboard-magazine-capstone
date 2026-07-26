@@ -22,7 +22,21 @@
                 PUSH<span>®</span>
             </a>
             <p>Week 02 / Design systems</p>
-            <p class="mode-note">Your system theme sets the mode</p>
+            <nav class="site-actions" aria-label="Display preferences">
+                <button
+                    class="theme-toggle"
+                    type="button"
+                    aria-label="Switch color theme"
+                    aria-pressed="false"
+                    data-theme-toggle
+                >
+                    <span class="skateboard" aria-hidden="true">
+                        <span class="skateboard__deck"></span>
+                        <span class="skateboard__truck skateboard__truck--front"></span>
+                        <span class="skateboard__truck skateboard__truck--back"></span>
+                    </span>
+                </button>
+            </nav>
         </header>
 
         <main id="main-content">
@@ -31,8 +45,9 @@
                 <h1 id="page-title">Built to<br><em>contrast.</em></h1>
                 <div class="hero-meta">
                     <p>
-                        An accessible OKLCH palette and a title scale that moves from pocket
-                        screen to desktop without a breakpoint.
+                        A black-led OKLCH palette with red energy, a purple counter-accent,
+                        and a title scale that moves from pocket screen to desktop without a
+                        breakpoint.
                     </p>
                     <span aria-hidden="true">↘</span>
                 </div>
@@ -41,7 +56,7 @@
             <section class="palette" aria-labelledby="palette-title">
                 <div class="section-heading">
                     <p>01 / Designing the palette</p>
-                    <h2 id="palette-title">Two modes.<br>One readable system.</h2>
+                    <h2 id="palette-title">Black leads.<br>Red hits. Purple cuts.</h2>
                 </div>
 
                 <div class="swatches">
@@ -53,14 +68,14 @@
                         <dl>
                             <div>
                                 <dt>Background</dt>
-                                <dd>oklch(97% 0.015 90)</dd>
+                                <dd>oklch(96% 0.015 90)</dd>
                             </div>
                             <div>
                                 <dt>Text</dt>
-                                <dd>oklch(22% 0.02 265)</dd>
+                                <dd>oklch(14% 0.025 275)</dd>
                             </div>
                         </dl>
-                        <p class="ratio">15.89:1 <span>AAA</span></p>
+                        <p class="ratio">17.75:1 <span>AAA</span></p>
                     </article>
 
                     <article class="swatch swatch--dark">
@@ -71,14 +86,14 @@
                         <dl>
                             <div>
                                 <dt>Background</dt>
-                                <dd>oklch(18% 0.02 265)</dd>
+                                <dd>oklch(14% 0.025 275)</dd>
                             </div>
                             <div>
                                 <dt>Text</dt>
-                                <dd>oklch(94% 0.015 90)</dd>
+                                <dd>oklch(96% 0.015 90)</dd>
                             </div>
                         </dl>
-                        <p class="ratio">15.79:1 <span>AAA</span></p>
+                        <p class="ratio">17.75:1 <span>AAA</span></p>
                     </article>
                 </div>
 
@@ -88,14 +103,14 @@
                         <p>
                             OKLCH <code>L</code> runs from 0 (black) to 1 (white) and is
                             perceptually uniform, so a large gap is a strong starting point:
-                            <strong>0.97 − 0.22 = 0.75</strong> in light mode and
-                            <strong>0.94 − 0.18 = 0.76</strong> in dark mode.
+                            <strong>0.96 − 0.14 = 0.82</strong> in light mode and
+                            <strong>0.96 − 0.14 = 0.82</strong> in dark mode.
                         </p>
                         <p>
                             WCAG does not calculate contrast from that L gap directly. After
                             converting each color to linear sRGB, it uses
                             <code>(Llighter + 0.05) / (Ldarker + 0.05)</code>. These pairs
-                            produce 15.89:1 and 15.79:1—well above AA’s 4.5:1 requirement for
+                            produce 17.75:1 in both modes—well above AA’s 4.5:1 requirement for
                             normal text.
                         </p>
                     </div>
@@ -160,5 +175,6 @@
             <p>PUSH Magazine / Week 02</p>
             <p>Fall down. Get up.</p>
         </footer>
+        <script src="../theme-toggle.js"></script>
     </body>
 </html>
