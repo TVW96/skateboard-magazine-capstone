@@ -1,5 +1,3 @@
-/* global document, localStorage, window */
-
 const themeToggle = document.querySelector("[data-theme-toggle]");
 const themeStorageKey = "push-color-theme";
 const root = document.documentElement;
