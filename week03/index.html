@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta
+            name="description"
+            content="PUSH Magazine Week 03 semantic editorial layout frame built with HTML5 landmarks and CSS Grid."
+        >
+        <title>Week 03 — Structural Frames &amp; Semantic Navigation</title>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body id="top">
+        <a class="skip-link" href="#main-content">Skip to content frame</a>
+
+        <header class="site-header">
+            <a
+                class="wordmark"
+                href="../"
+                aria-label="Return to PUSH Magazine home"
+            >
+                PUSH<span>®</span>
+            </a>
+            <p>Week 03 / Structural frames</p>
+            <nav class="site-nav" aria-label="Primary navigation">
+                <a href="../">Issue index</a>
+                <a href="../week02/">Week 02 tokens</a>
+                <button
+                    class="theme-toggle"
+                    type="button"
+                    aria-label="Switch color theme"
+                    aria-pressed="false"
+                    data-theme-toggle
+                >
+                    <span class="skateboard" aria-hidden="true">
+                        <span class="skateboard__deck"></span>
+                        <span class="skateboard__truck skateboard__truck--front"></span>
+                        <span class="skateboard__truck skateboard__truck--back"></span>
+                    </span>
+                </button>
+            </nav>
+        </header>
+
+        <main
+            class="editorial-frame"
+            id="main-content"
+            aria-labelledby="page-title"
+        >
+            <header class="frame-heading">
+                <p>Archetype B / Editorial</p>
+                <h1 id="page-title">Structural Frames &amp; Semantic Navigation</h1>
+            </header>
+            <section
+                class="lead-frame"
+                aria-label="Reserved lead story frame"
+            ></section>
+            <section
+                class="article-frame"
+                aria-label="Reserved article body frame"
+            ></section>
+        </main>
+
+        <aside class="context-rail" aria-labelledby="context-title">
+            <header>
+                <p>Secondary region</p>
+                <h2 id="context-title">Context rail</h2>
+            </header>
+            <section
+                class="rail-frame"
+                aria-label="Reserved related story frame"
+            ></section>
+            <section
+                class="rail-frame"
+                aria-label="Reserved newsletter frame"
+            ></section>
+        </aside>
+
+        <footer class="site-footer">
+            <a href="#top">Back to top</a>
+            <p>Content intentionally withheld</p>
+            <p>PUSH Magazine / Week 03</p>
+        </footer>
+
+        <script src="../theme-toggle.js"></script>
+    </body>
+</html>
