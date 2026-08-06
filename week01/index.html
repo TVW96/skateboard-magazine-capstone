@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta
+            name="description"
+            content="Skateboard Magazine Capstone weekly landing page directory."
+        >
+        <title>Skateboard Magazine Capstone</title>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body class="landing-page" id="top">
+        <a class="skip-link" href="#weekly-issues">Skip to weekly issues</a>
+
+        <header class="site-header landing-header">
+            <a
+                class="wordmark"
+                href="./"
+                aria-label="Skateboard Magazine Capstone home"
+            >
+                PUSH<span>®</span>
+            </a>
+            <p>Skateboard Magazine Capstone</p>
+            <nav class="week-nav" aria-label="Weekly pages">
+                <a href="./week02/">Week 02</a>
+                <button
+                    class="theme-toggle"
+                    type="button"
+                    aria-label="Switch color theme"
+                    aria-pressed="false"
+                    data-theme-toggle
+                >
+                    <span class="skateboard" aria-hidden="true">
+                        <span class="skateboard__deck"></span>
+                        <span class="skateboard__truck skateboard__truck--front"></span>
+                        <span class="skateboard__truck skateboard__truck--back"></span>
+                    </span>
+                </button>
+            </nav>
+        </header>
+
+        <main id="main-content">
+            <section class="landing-hero" aria-labelledby="page-title">
+                <p class="eyebrow">Capstone directory / 2026</p>
+                <h1 id="page-title">Skateboard<br><em>Magazine</em></h1>
+                <h2><em>Week</em><br><em>02</em></h2>
+                <p>
+                    The kickoff week for the skateboard magazine capstone project, setting up the foundational design system and project structure.
+                </p>
+            </section>
+
+            <section
+                class="weekly-issues"
+                id="weekly-issues"
+                aria-labelledby="weekly-issues-title"
+            >
+                <div class="section-heading">
+                    <p>Design System</p>
+                    <h3 id="weekly-issues-title">Archetype Selection, Deployment Architecture, Technical Blueprint</h3>
+                </div>
+
+                <div class="week-list">
+                    <article class="week-item">
+                        <p>Archetype Selection</p>
+                        <h3>
+                            <a href="./week02/">The Modern Editorial/ Tech Publication</a>
+                        </h3>
+                        <p>
+                            <b>Best For</b> <br>Gaming magazines, design digests, investigative blogs, recipes or travel journals. <br><br> <b>Structural Elements Inlcuded</b> <br>Dynamic header, asymmetric story grid, reading status bar, fluid long-form typography.
+                        </p>
+                    </article>
+                </div>
+                <div class="week-list">
+                    <article class="week-item">
+                        <p>Deployment Architecture</p>
+                        <h3>
+                            <a href="./week02/">The Multi-week Deployment Architecture</a>
+                        </h3>
+                        <p>To ensure your previous weeks' progress is never lost, you must structure your project using a subdirectory architecture inside a single GitHub repository. This allows you to host all milestones under one live domain.</p>
+                    </article>
+                </div>
+                <div class="week-list">
+                    <article class="week-item">
+                        <p>Technical Blueprint</p>
+                        <h3>
+                            <a href="./week02/">The Design System Token Page</a>
+                        </h3>
+                        <p>
+                            <b>Perceptual Color with `OKLCH`</b>
+                            <br>
+                            Using the OKLCH color space ensures that color differences are perceived consistently, providing a more accessible and visually harmonious design system.
+                            <br><br>
+                            <b>Fluid Typography</b>
+                            <br>
+                            The design system includes a fluid type scale that adapts seamlessly from small screens to large displays, ensuring optimal readability and visual hierarchy across devices.
+                            <br><br>
+                            <b>Spacing Constants</b>
+                            <br>
+                            Consistent spacing constants are defined to maintain rhythm and alignment throughout the design system, ensuring a cohesive visual structure.
+                        </p>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <a href="#top">Back to top</a>
+            <p>Skateboard Magazine Capstone</p>
+            <p>Weekly landing page directory</p>
+        </footer>
+        <script src="./theme-toggle.js"></script>
+    </body>
+</html>
