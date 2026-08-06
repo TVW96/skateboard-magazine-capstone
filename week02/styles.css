@@ -15,6 +15,12 @@
   --line: oklch(55% 0.2 315 / 65%);
   --grid-line: oklch(96% 0.015 90 / 28%);
 
+  /* Fluid spacing constants for later structural layouts. */
+  --space-xs: clamp(0.5rem, 0.45rem + 0.25vw, 0.75rem);
+  --space-sm: clamp(0.75rem, 0.65rem + 0.5vw, 1.25rem);
+  --space-md: clamp(1rem, 0.6rem + 2vw, 3rem);
+  --space-lg: clamp(2rem, 1.2rem + 4vw, 6rem);
+
   /* 28px at 375px → 48px at 1440px (with a 16px root size). */
   --title-size: clamp(1.75rem, calc(1.3099rem + 1.8779vw), 3rem);
 }
@@ -80,6 +86,12 @@ body {
 
 a {
   color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent-secondary-link);
+  outline-offset: 3px;
 }
 
 .skip-link {
@@ -159,7 +171,6 @@ footer p:last-child {
 .theme-toggle:hover,
 .theme-toggle:focus-visible {
   border-color: var(--accent-link);
-  outline: 0;
 }
 
 .skateboard {
@@ -546,7 +557,6 @@ footer a {
 .week-item a:focus-visible {
   color: var(--accent-text);
   background: var(--accent);
-  outline: 0;
 }
 
 .landing-hero {

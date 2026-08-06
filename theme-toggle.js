@@ -4,7 +4,10 @@ const root = document.documentElement;
 const systemTheme = window.matchMedia("(prefers-color-scheme: light)");
 
 function getTheme() {
-  return localStorage.getItem(themeStorageKey) || (systemTheme.matches ? "light" : "dark");
+  return (
+    localStorage.getItem(themeStorageKey) ||
+    (systemTheme.matches ? "light" : "dark")
+  );
 }
 
 function setTheme(theme) {

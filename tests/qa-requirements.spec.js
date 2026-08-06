@@ -1,10 +1,12 @@
 const { expect, test } = require("@playwright/test");
 
-const pages = ["/", "/week02/"];
+const pages = ["/", "/week02/", "/week03/"];
 const breakpoints = [
+  { name: "small mobile", width: 320, height: 568 },
   { name: "mobile", width: 375, height: 812 },
   { name: "tablet", width: 768, height: 1024 },
   { name: "desktop", width: 1440, height: 900 },
+  { name: "ultrawide", width: 2560, height: 1440 },
 ];
 
 test.describe("QA checklist - functionality walkthrough", () => {
@@ -94,6 +96,130 @@ test.describe("QA checklist - functionality walkthrough", () => {
       ).toHaveCount(0);
     });
   }
+});
+
+test.describe("Week 03 submission verification", () => {
+  test("outer layout uses semantic landmarks without div soup", async ({
+    page,
+  }) => {
+    await page.goto("/week03/");
+
+    await expect(page.locator("body > header.site-header")).toHaveCount(1);
+    await expect(page.locator("body > main.editorial-frame")).toHaveCount(1);
+    await expect(page.locator("body > aside.context-rail")).toHaveCount(1);
+    await expect(page.locator("body > footer.site-footer")).toHaveCount(1);
+    await expect(page.locator("header > nav.site-nav")).toHaveCount(1);
+    await expect(page.locator("div")).toHaveCount(0);
+
+    const landmarkOrder = await page
+      .locator("body")
+      .evaluate((body) =>
+        [...body.children]
+          .filter((element) =>
+            ["HEADER", "MAIN", "ASIDE", "FOOTER"].includes(element.tagName),
+          )
+          .map((element) => element.tagName.toLowerCase()),
+      );
+
+    expect(landmarkOrder).toEqual(["header", "main", "aside", "footer"]);
+  });
+
+  test("Tab key follows a logical order with visible navigation focus rings", async ({
+    browserName,
+    page,
+  }) => {
+    await page.goto("/week03/");
+
+    const tabKey = browserName === "webkit" ? "Alt+Tab" : "Tab";
+    const tabOrder = [
+      ".skip-link",
+      ".wordmark",
+      '.site-nav a[href="../"]',
+      '.site-nav a[href="../week02/"]',
+      "[data-theme-toggle]",
+      '.site-footer a[href="#top"]',
+    ];
+
+    for (const selector of tabOrder) {
+      await page.keyboard.press(tabKey);
+      await expect(page.locator(selector)).toBeFocused();
+    }
+
+    const navigationLinks = page.locator(".site-nav a");
+    const navigationLinkCount = await navigationLinks.count();
+
+    for (let index = 0; index < navigationLinkCount; index += 1) {
+      const link = navigationLinks.nth(index);
+      await link.focus();
+
+      const focusRing = await link.evaluate((element) => {
+        const style = getComputedStyle(element);
+        return {
+          color: style.outlineColor,
+          offset: Number.parseFloat(style.outlineOffset),
+          style: style.outlineStyle,
+          width: Number.parseFloat(style.outlineWidth),
+        };
+      });
+
+      expect(focusRing.style).toBe("solid");
+      expect(focusRing.width).toBeGreaterThanOrEqual(3);
+      expect(focusRing.offset).toBeGreaterThanOrEqual(3);
+      expect(focusRing.color).not.toBe("transparent");
+    }
+  });
+
+  test("layout rearranges cleanly from 320px through 2560px", async ({
+    page,
+  }) => {
+    for (const viewport of [
+      { width: 320, height: 568, mode: "stacked" },
+      { width: 2560, height: 1440, mode: "side-by-side" },
+    ]) {
+      await page.setViewportSize({
+        width: viewport.width,
+        height: viewport.height,
+      });
+      await page.goto("/week03/");
+
+      const layout = await page.evaluate(() => {
+        const main = document.querySelector("main").getBoundingClientRect();
+        const aside = document.querySelector("aside").getBoundingClientRect();
+
+        return {
+          aside: {
+            bottom: aside.bottom,
+            left: aside.left,
+            right: aside.right,
+            top: aside.top,
+            width: aside.width,
+          },
+          documentWidth: document.documentElement.scrollWidth,
+          main: {
+            bottom: main.bottom,
+            left: main.left,
+            right: main.right,
+            top: main.top,
+            width: main.width,
+          },
+          viewportWidth: document.documentElement.clientWidth,
+        };
+      });
+
+      expect(layout.documentWidth).toBeLessThanOrEqual(
+        layout.viewportWidth + 1,
+      );
+      expect(layout.main.width).toBeGreaterThan(0);
+      expect(layout.aside.width).toBeGreaterThan(0);
+
+      if (viewport.mode === "stacked") {
+        expect(layout.aside.top).toBeGreaterThanOrEqual(layout.main.bottom - 1);
+      } else {
+        expect(layout.aside.left).toBeGreaterThanOrEqual(layout.main.right - 1);
+        expect(layout.aside.top).toBeLessThan(layout.main.bottom);
+      }
+    }
+  });
 });
 
 test.describe("QA checklist - deployment and cross-browser readiness", () => {
