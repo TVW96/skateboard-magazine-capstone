@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta
+            name="description"
+            content="PUSH Magazine Week 04 — a responsive asymmetric CSS Grid of skateboard stories led by a dominant feature card."
+        >
+        <title>Week 04 — Concrete, Rearranged</title>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body id="top">
+        <a class="skip-link" href="#main-content">Skip to the stories</a>
+
+        <header class="site-header">
+            <a
+                class="wordmark"
+                href="../"
+                aria-label="Return to PUSH Magazine home"
+            >
+                PUSH<span>®</span>
+            </a>
+            <p>Week 04 / Content architecture</p>
+            <nav class="site-nav" aria-label="Primary navigation">
+                <a href="../">Issue index</a>
+                <a href="../week03/">Week 03 frame</a>
+                <button
+                    class="theme-toggle"
+                    type="button"
+                    aria-label="Switch color theme"
+                    aria-pressed="false"
+                    data-theme-toggle
+                >
+                    <span class="skateboard" aria-hidden="true">
+                        <span class="skateboard__deck"></span>
+                        <span class="skateboard__truck skateboard__truck--front"></span>
+                        <span class="skateboard__truck skateboard__truck--back"></span>
+                    </span>
+                </button>
+            </nav>
+        </header>
+
+        <main
+            class="editorial-frame"
+            id="main-content"
+            aria-labelledby="page-title"
+        >
+            <header class="frame-heading">
+                <p>Volume 04 / Street study</p>
+                <h1 id="page-title">Concrete,<br><em>rearranged.</em></h1>
+                <p class="issue-note">
+                    Six dispatches on the spots, people, and small decisions that keep
+                    skateboarding in motion.
+                </p>
+            </header>
+
+            <section class="story-grid" aria-label="Latest skateboard stories">
+                <article class="story-card story-card--hero">
+                    <div class="story-card__art story-card__art--hero" aria-hidden="true">
+                        <span>01</span>
+                    </div>
+                    <div class="story-card__content">
+                        <p class="story-card__kicker">Cover story / Portland</p>
+                        <h2><a href="#story-01">The concrete wave</a></h2>
+                        <p id="story-01">
+                            Before sunrise, Burnside belongs to the builders, the lifers, and
+                            anyone willing to take one more run through the deep end.
+                        </p>
+                        <div class="story-card__meta">
+                            <span>12 min read</span><span>Field notes 001</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="story-card story-card--red">
+                    <div class="story-card__content">
+                        <p class="story-card__kicker">Night shift / Oakland</p>
+                        <h2><a href="#story-02">After the last BART</a></h2>
+                        <p id="story-02">
+                            A curb, a generator, and two hours before security circles back.
+                        </p>
+                        <div class="story-card__meta">
+                            <span>Photo essay</span><span>02</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="story-card story-card--pattern">
+                    <div class="story-card__content">
+                        <p class="story-card__kicker">Setup lab / Hardware</p>
+                        <h2><a href="#story-03">Quarter-inch decisions</a></h2>
+                        <p id="story-03">
+                            What really changes when an 8.25 becomes an 8.5.
+                        </p>
+                        <div class="story-card__meta">
+                            <span>Bench test</span><span>03</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="story-card story-card--wide">
+                    <div class="story-card__number" aria-hidden="true">04</div>
+                    <div class="story-card__content">
+                        <p class="story-card__kicker">Portraits / New generation</p>
+                        <h2><a href="#story-04">No permission required</a></h2>
+                        <p id="story-04">
+                            Four skaters building their own sessions, crews, and visual
+                            language.
+                        </p>
+                        <div class="story-card__meta">
+                            <span>Interviews</span><span>18 min</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="story-card story-card--purple">
+                    <div class="story-card__content">
+                        <p class="story-card__kicker">Spot check / Oregon coast</p>
+                        <h2><a href="#story-05">Lines in the rain</a></h2>
+                        <p id="story-05">
+                            Reading the transitions at Lincoln City between storms.
+                        </p>
+                        <div class="story-card__meta">
+                            <span>Travel</span><span>05</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="story-card story-card--film">
+                    <div
+                        class="story-card__art story-card__art--film"
+                        aria-hidden="true"
+                    ></div>
+                    <div class="story-card__content">
+                        <p class="story-card__kicker">Film roll / 36 exposures</p>
+                        <h2><a href="#story-06">Misses, makes, in-betweens</a></h2>
+                        <p id="story-06">
+                            One roll, no previews, and every frame from a Sunday session.
+                        </p>
+                        <div class="story-card__meta">
+                            <span>Contact sheet</span><span>06</span>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <aside class="context-rail" aria-labelledby="context-title">
+            <header>
+                <p>Inside the issue</p>
+                <h2 id="context-title">PUSH No. 004</h2>
+            </header>
+            <ol class="issue-index">
+                <li><span>01</span><a href="#story-01">Cover</a></li>
+                <li><span>02</span><a href="#story-02">Night shift</a></li>
+                <li><span>03</span><a href="#story-03">Setup lab</a></li>
+                <li><span>04</span><a href="#story-04">Portraits</a></li>
+                <li><span>05</span><a href="#story-05">Spot check</a></li>
+                <li><span>06</span><a href="#story-06">Film roll</a></li>
+            </ol>
+            <p class="rail-statement">Built by hand.<br>Changed by use.</p>
+        </aside>
+
+        <footer class="site-footer">
+            <a href="#top">Back to top</a>
+            <p>Asymmetric by design</p>
+            <p>PUSH Magazine / Week 04</p>
+        </footer>
+        <script src="../theme-toggle.js"></script>
+    </body>
+</html>
