@@ -1,6 +1,6 @@
 const { expect, test } = require("@playwright/test");
 
-const pages = ["/", "/week02/"];
+const pages = ["/", "/week02/", "/week03/", "/week04/"];
 const breakpoints = [
   { name: "mobile", width: 375, height: 812 },
   { name: "tablet", width: 768, height: 1024 },
