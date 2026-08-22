@@ -1,6 +1,6 @@
 const { expect, test } = require("@playwright/test");
 
-const pages = ["/", "/week02/", "/week03/", "/week04/", "/week05/"];
+const pages = ["/", "/week02/", "/week03/", "/week04/", "/week05/", "/week06/"];
 const breakpoints = [
   { name: "mobile", width: 375, height: 812 },
   { name: "tablet", width: 768, height: 1024 },
@@ -339,4 +339,135 @@ test.describe("QA checklist - automated audit proxies", () => {
       expect.soft(lowContrastText).toEqual([]);
     });
   }
+});
+
+test.describe("Week 06 - component container queries", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/week06/");
+  });
+
+  test("card slots establish inline-size container contexts", async ({
+    page,
+  }) => {
+    expect(
+      await page.evaluate(() => CSS.supports("container-type: inline-size")),
+    ).toBe(true);
+
+    for (const selector of [".story-slot", ".rail-card-slot"]) {
+      await expect(page.locator(selector).first()).toHaveCSS(
+        "container-type",
+        "inline-size",
+      );
+    }
+  });
+
+  test("the same film card is horizontal in a wide slot and stacked in the rail", async ({
+    page,
+  }) => {
+    const wideCard = page.locator('[data-container-demo="wide"] .story-card');
+    const narrowCard = page.locator(
+      '[data-container-demo="narrow"] .story-card',
+    );
+
+    await expect(wideCard).toHaveCSS("flex-direction", "row");
+    await expect(narrowCard).toHaveCSS("flex-direction", "column");
+  });
+
+  test("a card responds to its slot width without changing the viewport", async ({
+    page,
+  }) => {
+    const slot = page.locator('[data-container-demo="wide"]');
+    const card = slot.locator(".story-card");
+
+    await slot.evaluate((element) => {
+      element.style.width = "28rem";
+    });
+    await expect(card).toHaveCSS("flex-direction", "column");
+
+    await slot.evaluate((element) => {
+      element.style.width = "36rem";
+    });
+    await expect(card).toHaveCSS("flex-direction", "row");
+
+    expect(await page.evaluate(() => window.innerWidth)).toBe(1440);
+  });
+
+  test("media queries do not control story-card internals", async ({
+    page,
+  }) => {
+    const cardRulesInsideMediaQueries = await page.evaluate(() => {
+      const matches = [];
+
+      function visit(rules, insideMediaQuery = false) {
+        for (const rule of rules) {
+          const isMediaRule =
+            rule.constructor.name === "CSSMediaRule" ||
+            rule.cssText.startsWith("@media");
+          const isInsideMediaQuery = insideMediaQuery || isMediaRule;
+
+          if (
+            isInsideMediaQuery &&
+            rule.selectorText?.includes(".story-card")
+          ) {
+            matches.push(rule.cssText);
+          }
+
+          try {
+            if (rule.cssRules) {
+              visit(rule.cssRules, isInsideMediaQuery);
+            }
+          } catch {
+            // Cross-origin @import rules are unrelated to local card layout.
+          }
+        }
+      }
+
+      for (const sheet of document.styleSheets) {
+        visit(sheet.cssRules);
+      }
+
+      return matches;
+    });
+
+    expect(cardRulesInsideMediaQueries).toEqual([]);
+  });
+
+  test("card typography uses container-relative units", async ({ page }) => {
+    const containerRelativeValues = await page.evaluate(() => {
+      const values = [];
+
+      function visit(rules) {
+        for (const rule of rules) {
+          if (rule.style) {
+            for (const property of Array.from(rule.style)) {
+              const value = rule.style.getPropertyValue(property);
+              if (/\d+(?:\.\d+)?cq(?:i|w)\b/.test(value)) {
+                values.push(`${property}: ${value}`);
+              }
+            }
+          }
+
+          try {
+            if (rule.cssRules) {
+              visit(rule.cssRules);
+            }
+          } catch {
+            // Cross-origin @import rules are unrelated to local card units.
+          }
+        }
+      }
+
+      for (const sheet of document.styleSheets) {
+        visit(sheet.cssRules);
+      }
+
+      return values;
+    });
+
+    expect(containerRelativeValues.length).toBeGreaterThan(0);
+    expect(containerRelativeValues).toContain(
+      "font-size: clamp(1.35rem, 4cqi, 2.3rem)",
+    );
+  });
 });
